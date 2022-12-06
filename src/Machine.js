@@ -41,4 +41,16 @@ module.exports = class Machine {
         const result = {'item':itemName[0],change:this.change};
         return result;
     }
+
+    cancel(){
+        let myMoney = this.money;
+        for(let i = this.exceptedMoney.length-1;i>=0;i--){
+            if(myMoney >= this.exceptedMoney[i]){
+                myMoney -= this.exceptedMoney[i];
+                this.change.push(this.exceptedMoney[i]);
+            }
+        }
+        this.money = 0;
+        return {change: this.change};
+    }
 };

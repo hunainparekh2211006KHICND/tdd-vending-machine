@@ -73,4 +73,18 @@ describe('the vending machine', () => {
         //assert
         expect(myPurchase).toEqual(expected);
     });
+
+    //07. As a customer, I want to receive my money back when I push the cancel button, so that I can change my mind.
+    it('should return my money if I change my mind',()=>{
+        //setup
+        const machine = new Machine();
+        const expected = {change: [100, 20, 10]};
+        //exercise
+        machine.deposit(100);
+        machine.deposit(20);
+        machine.deposit(10);
+        const cancelPurchase = machine.cancel();
+        //assert
+        expect(cancelPurchase).toEqual(expected);
+    });
 });
