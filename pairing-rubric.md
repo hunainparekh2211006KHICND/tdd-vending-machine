@@ -1,9 +1,10 @@
 # Pairing Rubric
 
 Your Name: _________________________________________
-
+Hunain Parekh
 Pair's Name: ________________________________________
-
+No Pairing Partner Toady I am Alone cause we have odd number of champs in class
+  
 | Pairing Behavior | Needs Improvement | In Between | Desirable |
 | --- | --- | --- | --- | 
 | Driving/navigating time | One pair keeps control the whole time, or takes over inappropriately | | Driving and navigator take turns as appropriate for their relative experience levels |
