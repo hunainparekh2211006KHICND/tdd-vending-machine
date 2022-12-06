@@ -12,4 +12,15 @@ describe('the vending machine', () => {
         expect(actual).toEqual(expected);
     });
 
+    //As a customer, I want to know how much money I have deposited, so that I know what I can purchase.
+    it('should return how much money I deposited',()=>{
+        //setup
+        const machine = new Machine();
+        const expected = "You have deposited Rs 89";
+        //exercise
+        const myDepositMoney = machine.deposit(89);
+        //assert
+        expect(myDepositMoney).toEqual(expected);
+    });
+
 });
