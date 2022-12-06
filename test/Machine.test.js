@@ -41,7 +41,7 @@ describe('the vending machine', () => {
         const machine = new Machine();
         const expected = "The item you selected is unavailable";
         //exercise
-        const UnexpectedItem = machine.selectItem('colddrink');
+        const UnexpectedItem = machine.selectItem(5);
         //assert
         expect(UnexpectedItem).toEqual(expected);
     });
@@ -55,7 +55,21 @@ describe('the vending machine', () => {
         machine.deposit(50);
         machine.deposit(20);
         machine.deposit(10);
-        const myPurchase = machine.selectItem('crisps');
+        const myPurchase = machine.selectItem(0);
+        //assert
+        expect(myPurchase).toEqual(expected);
+    });
+
+    //06. As a customer, I want to receive change, so that I don’t pay more than the item costs.
+    it('should be return change as per excepted amount',()=>{
+        //setup
+        const machine = new Machine();
+        const expected = {item: 'crisps', change: [20, 10]};
+        //exercise
+        machine.deposit(100);
+        machine.deposit(20);
+        machine.deposit(10);
+        const myPurchase = machine.selectItem(0);
         //assert
         expect(myPurchase).toEqual(expected);
     });
