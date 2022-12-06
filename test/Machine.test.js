@@ -12,13 +12,25 @@ describe('the vending machine', () => {
         expect(actual).toEqual(expected);
     });
 
-    //As a customer, I want to know how much money I have deposited, so that I know what I can purchase.
+    //02. As a customer, I want to know how much money I have deposited, so that I know what I can purchase.
     it('should return how much money I deposited',()=>{
         //setup
         const machine = new Machine();
         const expected = "You have deposited Rs 100";
         //exercise
         const myDepositMoney = machine.deposit(100);
+        //assert
+        expect(myDepositMoney).toEqual(expected);
+    });
+
+    //03. As a customer, I want to add additional money, so that I can use the denominations I have to purchase an item.
+    it('should return the total amount of i deposited when I add additional money',()=>{
+        //setup
+        const machine = new Machine();
+        const expected = "You have deposited Rs 150";
+        //exercise
+        machine.deposit(100);
+        const myDepositMoney = machine.deposit(50);
         //assert
         expect(myDepositMoney).toEqual(expected);
     });
