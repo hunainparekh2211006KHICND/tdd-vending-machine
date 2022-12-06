@@ -20,10 +20,9 @@ module.exports = class Machine {
     }
 
     selectItem(code){
-        let expectedItem = Object.keys(this.items).find(key => key === code);
+        let expectedItem = this.items.find(key => key.hasOwnProperty(code));
         if(expectedItem === undefined){
             return "The item you selected is unavailable";
         }
-        return expectedItem;
     }
 };
