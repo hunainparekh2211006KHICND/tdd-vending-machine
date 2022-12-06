@@ -5,7 +5,7 @@ describe('the vending machine', () => {
     it('should have items to purchase', () => {
         // setup
         const machine = new Machine();
-        const expected = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}];
+        const expected = [{'crisps': 100}, {'chocolate': 350}, {'mints': 75}];
         // exercise
         const actual = machine.seeSelections();
         // assert
@@ -84,6 +84,22 @@ describe('the vending machine', () => {
         machine.deposit(20);
         machine.deposit(10);
         const cancelPurchase = machine.cancel();
+        //assert
+        expect(cancelPurchase).toEqual(expected);
+    });
+
+    //08. As a customer, I want to know if the vending machine can make change, so that I can cancel my choice if it can't make change.
+    // I made changes in accutall list for unexpected change return from machine
+    it('should return it able to change or not when I purchase something',()=>{
+        //setup
+        const machine = new Machine();
+        const expected = "Cannot return proper change.  Please choose another item or cancel the transaction";
+        //exercise
+        machine.deposit(50);
+        machine.deposit(20);
+        machine.deposit(20);
+        machine.deposit(10);
+        const cancelPurchase = machine.selectItem(2);
         //assert
         expect(cancelPurchase).toEqual(expected);
     });

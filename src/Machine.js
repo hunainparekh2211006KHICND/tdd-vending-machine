@@ -1,6 +1,6 @@
 module.exports = class Machine {
     constructor() {
-        this.items = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}];
+        this.items = [{'crisps': 100}, {'chocolate': 350}, {'mints': 75}];
         this.exceptedMoney = [10,20,50,100,500];
         this.money = 0;
         this.change = [];
@@ -37,6 +37,9 @@ module.exports = class Machine {
                 remainingMoney -= this.exceptedMoney[i];
                 this.change.push(this.exceptedMoney[i]);
             }
+        }
+        if(remainingMoney > 0){
+            return "Cannot return proper change.  Please choose another item or cancel the transaction";
         }
         const result = {'item':itemName[0],change:this.change};
         return result;
