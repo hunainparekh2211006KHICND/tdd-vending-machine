@@ -18,4 +18,12 @@ module.exports = class Machine {
             return "We are excepted money like 10,20,50,100 or 500";
         }
     }
+
+    selectItem(code){
+        let expectedItem = Object.keys(this.items).find(key => key === code);
+        if(expectedItem === undefined){
+            return "The item you selected is unavailable";
+        }
+        return expectedItem;
+    }
 };

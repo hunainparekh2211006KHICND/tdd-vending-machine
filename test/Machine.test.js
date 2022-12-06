@@ -35,4 +35,15 @@ describe('the vending machine', () => {
         expect(myDepositMoney).toEqual(expected);
     });
 
+    //04. As a customer, I want to see a message if my item is unavailable, so that I can make another choice.
+    it('should return unavailable when I make another choice',()=>{
+        //setup
+        const machine = new Machine();
+        const expected = "The item you selected is unavailable";
+        //exercise
+        const UnexpectedItem = machine.selectItem('colddrink');
+        //assert
+        expect(UnexpectedItem).toEqual(expected);
+    });
+
 });
