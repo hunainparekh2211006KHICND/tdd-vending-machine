@@ -46,4 +46,17 @@ describe('the vending machine', () => {
         expect(UnexpectedItem).toEqual(expected);
     });
 
+    //05. As a customer, I want to see a message if my deposit is insufficient, so that I know to add more money.
+    it('should return deposit is insufficient when I purchase something',()=>{
+        //setup
+        const machine = new Machine();
+        const expected = "Your deposit is insufficient.  Please add Rs 20 for this item";
+        //exercise
+        machine.deposit(50);
+        machine.deposit(20);
+        machine.deposit(10);
+        const myPurchase = machine.selectItem('crisps');
+        //assert
+        expect(myPurchase).toEqual(expected);
+    });
 });

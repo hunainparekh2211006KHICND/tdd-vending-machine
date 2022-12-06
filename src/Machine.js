@@ -24,5 +24,9 @@ module.exports = class Machine {
         if(expectedItem === undefined){
             return "The item you selected is unavailable";
         }
+        let itemPrice = Object.values(expectedItem);
+        if(itemPrice[0] > this.money){
+            return "Your deposit is insufficient.  Please add Rs "+Math.abs(itemPrice[0] - this.money)+" for this item";
+        }
     }
 };
